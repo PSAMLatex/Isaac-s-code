@@ -1,0 +1,203 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+\usepackage[parfill]{parskip}    % begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{mathtools}          % like amsmath but gives better matrix options + other cool stuff
+\usepackage{tcolorbox}           % Lets you make boxes
+\usepackage{epstopdf}
+\usepackage[utf8]{inputenc}        %provides proof and theorem environments (just proofs given w/ mathtools?)
+\usepackage[english]{babel}       %same
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+\begin{tcolorbox}[title=2.1.27 \hfill Isaac Baer , halign title=center] % 1st probem
+\begin{center}
+Let $\textbf{u}=
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}$
+and $\textbf{v}=
+\begin{pmatrix*}[r]
+a\\
+b\\
+c
+\end{pmatrix*}
+$.
+\end{center} 
+
+\vspace{10mm}
+
+Compute $\textbf{u}^T\textbf{v}$, $\textbf{v}^T\textbf{u}$, $\textbf{uv}^T$, and $\textbf{vu}^T$
+\end{tcolorbox}
+
+Since \textbf{u} and \textbf{v} are both $3\times1$ matrices, Their transposes will be $1\times3$ matrices with the same first entry. We can see that if we multiply one by the transpose of the other, the product will always be defined.
+
+$\textbf{u}^T\textbf{v}$ looks like 
+\[
+\begin{pmatrix*}[r]
+-2&3&-4
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+a\\
+b\\
+c
+\end{pmatrix*}
+\]
+
+This is just like any matrix multiplied by a vector. We multiply the rows of the vector by the columns of the matrix, and then sum the products to get
+
+\[
+\begin{pmatrix}
+-2a+3b-4c\
+\end{pmatrix}
+\]
+
+Note (for later) that no matter the size of the original vectors, this product will always be a $1\times1$ matrix.
+
+$\textbf{v}^T\textbf{u}$ looks similar
+
+\[
+\begin{pmatrix*}[r]
+a&b&c
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}
+\]
+
+And can be computed in the same way to find
+
+\[
+\begin{pmatrix}
+-2a+3b-4c\
+\end{pmatrix}
+\]
+
+$\textbf{uv}^T$ looks a bit different 
+
+\[
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+a&b&c
+\end{pmatrix*}
+\]
+
+To compute this we use the definition of matrix multiplication given on page 97. This gives us a $3\times3$ matrix with columns $
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}a$, $
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}b$, $
+\begin{pmatrix*}[r]
+-2\\
+3\\
+-4
+\end{pmatrix*}c$. which simplifies to 
+
+\[
+\begin{pmatrix*}[r]
+-2a&-2b&-2c\\
+3a&3b&3c\\
+-4a&-4b&-4c
+\end{pmatrix*}
+\]
+
+$\textbf{vu}^T$ looks like 
+
+\[
+\begin{pmatrix*}[r]
+a\\
+b\\
+c
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-2&3&-4
+\end{pmatrix*}
+\]
+
+and can be computed in the same manner to get
+
+\[
+\begin{pmatrix*}[r]
+-2a&3a&-4a\\
+-2b&3b&-4b\\
+-2c&3c&-4c
+\end{pmatrix*}
+\]
+
+\clearpage                                                          % 2nd problem
+
+\begin{tcolorbox}[title=2.1.28 \hfill Isaac Baer]
+If $\textbf{u}$ and $\textbf{v}$ are in $\mathbb{R}^n$, how are $\textbf{u}^T\textbf{v}$ and $\textbf{v}^T\textbf{u}$ related? How are $\textbf{uv}^T$ and $\textbf{vu}^T$ related?
+
+\end{tcolorbox}
+
+\vspace{1cm}
+
+\begin{center}                                                                 % 1st answer
+\begin{tcolorbox}[width=\linewidth/4, sharp corners]
+\begin{center}
+$\textbf{u}^T\textbf{v}=\textbf{v}^T\textbf{u}$
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\renewcommand\qedsymbol{$\blacksquare$} % changes QED symbol to a black square
+
+\begin{proof}
+Remember $\textbf{u}^T\textbf{v}$ is a $1\times1$ matrix. Therefore it must equal its transpose.
+\[
+\textbf{u}^T\textbf{v}=\left(\textbf{u}^T\textbf{v}\right)^T
+\]
+Since $\textbf{u}$ and $\textbf{v}$ are sized such that the products listed are defined, we can simplify the right side using Theorem 3, 
+\begin{equation*}
+\begin{split}
+\left(\textbf{u}^T\textbf{v}\right)^T & = \left(\textbf{v}\right)^T\left(\textbf{u}^T\right)^T\\
+& = \textbf{v}^T\textbf{u}
+\end{split}
+\end{equation*}
+
+Therefore $\textbf{u}^T\textbf{v}=\textbf{v}^T\textbf{u}$.
+\end{proof}
+
+\vspace{1cm}
+
+\begin{center}                                                                  % 2nd answer
+\begin{tcolorbox}[width=\linewidth/4, sharp corners]
+\begin{center}
+$\textbf{vu}^T=\left(\textbf{uv}^T\right)^T$
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\begin{proof}
+This follows similar reasoning to the previous proof
+By Theorem 3, 
+
+\begin{equation*}
+\begin{split}
+\left(\textbf{uv}^T\right)^T & =\left(\textbf{v}^T\right)^T\left(\textbf{u}\right)^T\\
+& = \textbf{vu}^T
+\end{split}
+\end{equation*}
+
+Thus $\textbf{vu}^T=\left(\textbf{uv}^T\right)^T$.
+
+\end{proof}
+
+\end{document}  

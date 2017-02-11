@@ -1,0 +1,143 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{mathtools,amssymb,tcolorbox}
+
+%SetFonts
+
+%SetFonts
+
+
+%\title{}
+%\author{Isaac Baer}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+%\section*{}
+%\subsection{}
+\begin{tcolorbox}[title=\textbf{1.1.12}]
+Solve the system
+\[x_1- 3x_2+4x_3=-4\]
+\[3x_1-7x_2+7x_3=-8\]
+\[-4x_1+6x_2-x_3=7\]
+\end{tcolorbox}
+The associated augmented matrix for this system is 
+\[
+\begin{pmatrix*}[r]
+1&-3&4&-4\\
+3&-7&7&-8\\
+-4&6&-1&7\end{pmatrix*}
+\]
+
+By a series of row operations we find 
+
+\[
+\begin{pmatrix*}[r]
+1&-3&4&-4\\
+3&-7&7&-8\\
+-4&6&-1&7\end{pmatrix*}
+\sim \begin{pmatrix*}[r]
+1&-3&4&4\\
+0&2&-5&4\\
+0&-6&15&-9\end{pmatrix*}
+\sim \begin{pmatrix*}[r]
+1&-3&4&-4\\
+0&2&-5&4\\
+0&0&0&3\end{pmatrix*}
+\]
+
+Since there is a pivot position in the last column of the echelon matrix, the equation $0=3$ is implied, which is absurd. Therefore the system of linear equations is inconsistent and there is no solution.
+
+\clearpage
+\begin{tcolorbox}[title=\textbf{1.4.14}]
+\begin{center}
+Let $\textbf{u}=\begin{pmatrix*}[r]
+2\\
+-3\\
+2\end{pmatrix*}$ and $A=\begin{pmatrix*}[r]
+5&8&7\\
+0&\hphantom{-}1&-1\\
+1&3&0\end{pmatrix*}$. 
+\end{center}
+
+\vspace{5 mm}
+
+Is \textbf{u} in the subset of $\mathbb{R}^3$ spanned by the columns of A? Why or why not?
+\end{tcolorbox}
+
+By definition, \textbf{u} is in the subset of $\mathbb{R}^3$ spanned by the columns of A if \textbf{u} is a linear combination of the columns of A, or more explicitly if there exist scalars $x_1, x_2,$ and $x_3$ such that
+
+\[
+x_1
+\begin{pmatrix*}[r]
+5\\
+0\\
+1\end{pmatrix*}
++ x_2
+\begin{pmatrix*}[r]
+8\\
+1\\
+3\end{pmatrix*}
++x_3
+\begin{pmatrix*}[r]
+7\\
+-1\\
+0\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+2\\
+-3\\
+2\end{pmatrix*}
+\]
+
+This vector equation has a solution if and only if there exists a solution to the linear system associated with the augmented matrix
+
+\[
+\begin{pmatrix*}[r]
+5&8&7&2\\
+0&1&-1&3\\
+1&3&0&2\end{pmatrix*}
+\]
+
+To check whether a solution exists, we perform the following series of row operations to arrive at a matrix in echelon form.
+
+\[
+\begin{pmatrix*}[r]
+5&8&7&2\\
+0&1&-1&3\\
+1&3&0&2\end{pmatrix*}
+\sim
+\begin{pmatrix*}[r]
+1&3&0&2\\
+0&1&-1&3\\
+5&8&7&2\\
+\end{pmatrix*}
+\sim
+\begin{pmatrix*}[r]
+1&3&0&2\\
+0&1&-1&3\\
+0&-7&7&-8
+\end{pmatrix*}
+\sim
+\begin{pmatrix*}[r]
+1&3&0&2\\
+0&1&-1&3\\
+0&0&0&13
+\end{pmatrix*}
+\]
+
+Since the last column of this echelon matrix has a pivot position, the associated linear system must be inconsistent. Therefore, the previously stated vector equation must have no solution. Thus \textbf{u} is not an element of the subset of $\mathbb{R}^3$ spanned by the columns of A.
+
+
+
+
+
+
+
+
+
+\end{document}  

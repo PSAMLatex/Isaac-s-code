@@ -1,0 +1,57 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+\begin{center}
+\begin{tcolorbox} [title=4.5.18 \hfill Isaac Baer , halign title=center] % first problem
+
+Determine the dimensions of Nul \textit{A} and Col \textit{A} for 
+
+\vspace{5mm}
+
+\begin{center}
+A=
+$
+\begin{pmatrix*}[r]
+1&4&-1\\
+0&7&0\\
+0&0&0
+\end{pmatrix*}
+$
+
+\end{center}
+\end{tcolorbox}
+
+\end{center}
+
+\vspace{10mm}
+
+A is already in echelon form, which makes this problem a bit simpler. We can notice A has two pivot columns. These columns form a basis for Col A, so Col A must have two dimensions.
+
+Since A has only three columns, The system of linear equations associated with A\textbf{x}=0 must have one free variable. This tells us that the basis for Nul A has only one element, giving it a dimensionality of one.
+
+\clearpage
+
+\begin{tcolorbox}[title=4.6.8 \hfill Isaac Baer]
+Suppose a $5\times6$ matrix A has four pivot columns. What is dim Nul A? Is Col A = $\mathbb{R}^4$? Why or why not?
+
+\end{tcolorbox}
+
+A has 6 columns, so by Theorem 14, dim Null A + dim Col A = 6. Theorem 14 also tells us that dim Col A is equal to the number of pivot positions in A, which is 4. Therefore dim Nul A + 4 = 6, and we see dim Nul A = 2.
+
+Col A is not equal to $\mathbb{R}^4$. It does have four dimensions, so in some ways it does behave like $\mathbb{R}^4$, but the elements of Col A are vectors with 5 components. This means they are actually elements of the space $\mathbb{R}^5$. Elements of $\mathbb{R}^4$ have only four components.
+
+In fact, there is an isomorphism from Col A onto $\mathbb{R}^4$ given by mapping the basis elements of Col A onto the unit vectors in $\mathbb{R}^4$, so the spaces can serve as models for each other. This is kind of like the way you can play checkers on a chess board by using just the pawns. The game functions exactly the same, but you're using chess pieces to play it.
+
+
+
+\end{document}  
